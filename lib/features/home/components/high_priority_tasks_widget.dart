@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_check_box.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
-import 'package:tasky/features/home/home_controller.dart';
 import 'package:tasky/features/tasks/controllers/tasks_controller.dart';
 import 'package:tasky/features/tasks/high_priority_screen.dart';
 
@@ -52,8 +51,7 @@ class HighPriorityTasksWidget extends StatelessWidget {
                             CustomCheckBox(
                               value: task.isDone,
                               onChanged: (bool? value) {
-                                final index = tasksList.indexWhere((e) => e.id == task.id);
-                                controller.doneHighPriorityTask(value, index);
+                                controller.doneTask(value, task.id);
                               },
                             ),
                             Flexible(
