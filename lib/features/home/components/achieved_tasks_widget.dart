@@ -2,24 +2,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tasky/features/home/home_controller.dart';
+import 'package:tasky/features/tasks/controllers/tasks_controller.dart';
 
 class AchievedTasksWidget extends StatelessWidget {
   const AchievedTasksWidget({
     super.key,
-    // required this.totalDoneTasks,
-    // required this.totalTask,
-    // required this.percent,
   });
 
-  // final int totalDoneTasks;
-  // final int totalTask;
-  // final double percent;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeController>(
-      builder: (BuildContext context,HomeController controller, Widget? child) {
+    return Consumer<TasksController>(
+      builder: (BuildContext context, TasksController controller, Widget? child) {
         return Container(
           width: double.infinity,
           decoration: BoxDecoration(
