@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky/core/constants/app_sizes.dart';
 
 ThemeData lightTheme = ThemeData(
@@ -14,7 +13,7 @@ ThemeData lightTheme = ThemeData(
     backgroundColor: Color(0xFFF6F7F9),
     titleTextStyle: TextStyle(
       color: Color(0xFF161F1B),
-      fontSize: 20,
+      fontSize: AppSizes.sp20,
     ),
     centerTitle: true,
     iconTheme: IconThemeData(
@@ -52,7 +51,7 @@ ThemeData lightTheme = ThemeData(
         backgroundColor: Color(0XFF15B86C),
         foregroundColor: Color(0xFFFFFCFC),
         textStyle: TextStyle(
-          fontSize: 14,
+          fontSize: AppSizes.sp14,
           fontWeight: FontWeight.w500,
         ),
         minimumSize: Size.fromHeight(AppSizes.h40)),
@@ -66,39 +65,39 @@ ThemeData lightTheme = ThemeData(
     backgroundColor: Color(0xFF15B86C),
     foregroundColor: Color(0xFFFFFCFC),
     extendedTextStyle: TextStyle(
-      fontSize: 14,
+      fontSize: AppSizes.sp14,
       fontWeight: FontWeight.w500,
     ),
   ),
   textTheme: TextTheme(
     displaySmall: TextStyle(
-      fontSize: 24.sp,
+      fontSize: AppSizes.sp24,
       color: Color(0xFF161F1B),
       fontWeight: FontWeight.w400,
     ),
     displayMedium: TextStyle(
-      fontSize: 28.sp,
+      fontSize: AppSizes.sp28,
       color: Color(0xFF161F1B),
       fontWeight: FontWeight.w400,
     ),
     displayLarge: TextStyle(
-      fontSize: 32.sp,
+      fontSize: AppSizes.sp32,
       color: Color(0xFF161F1B),
       fontWeight: FontWeight.w400,
     ),
     titleSmall: TextStyle(
       color: Color(0xFF3A4640),
-      fontSize: 14.sp,
+      fontSize: AppSizes.sp14,
       fontWeight: FontWeight.w400,
     ),
     titleMedium: TextStyle(
       color: Color(0xFF161F1B),
-      fontSize: 16.sp,
+      fontSize: AppSizes.sp16,
       fontWeight: FontWeight.w400,
     ),
     titleLarge: TextStyle(
       color: Color(0xFF6A6A6A),
-      fontSize: 16.sp,
+      fontSize: AppSizes.sp16,
       decoration: TextDecoration.lineThrough,
       decorationColor: Color(0xFF49454F),
       overflow: TextOverflow.ellipsis,
@@ -107,10 +106,10 @@ ThemeData lightTheme = ThemeData(
     labelSmall: TextStyle(
       fontWeight: FontWeight.w400,
       color: Color(0xFF161F1B),
-      fontSize: 20.sp,
+      fontSize: AppSizes.sp20,
     ),
-    labelMedium: TextStyle(color: Colors.black, fontSize: 16.sp),
-    labelLarge: TextStyle(color: Colors.black, fontSize: 24.sp),
+    labelMedium: TextStyle(color: Colors.black, fontSize: AppSizes.sp16),
+    labelLarge: TextStyle(color: Colors.black, fontSize: AppSizes.sp24),
   ),
   inputDecorationTheme: InputDecorationTheme(
     hintStyle: TextStyle(
@@ -151,10 +150,10 @@ ThemeData lightTheme = ThemeData(
   checkboxTheme: CheckboxThemeData(
     side: BorderSide(
       color: Color(0xFFD1DAD6),
-      width: 2,
+      width: AppSizes.w2,
     ),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(AppSizes.r4),
     ),
   ),
   iconTheme: IconThemeData(
@@ -163,7 +162,7 @@ ThemeData lightTheme = ThemeData(
   listTileTheme: ListTileThemeData(
     titleTextStyle: TextStyle(
       color: Color(0xFF161F1B),
-      fontSize: 16,
+      fontSize: AppSizes.sp16,
       fontWeight: FontWeight.w400,
     ),
   ),
@@ -183,13 +182,13 @@ ThemeData lightTheme = ThemeData(
   popupMenuTheme: PopupMenuThemeData(
     color: Color(0xFFF6F7F9),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppSizes.r16),
     ),
     elevation: 2,
     shadowColor: Color(0xFF15B86C),
     labelTextStyle: WidgetStateProperty.all(
       TextStyle(
-        fontSize: 20,
+        fontSize: AppSizes.sp20,
         fontWeight: FontWeight.w400,
         color: Colors.black,
       ),

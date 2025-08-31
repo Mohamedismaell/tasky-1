@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasky/core/constants/app_sizes.dart';
 
 ThemeData darkTheme = ThemeData(
@@ -14,7 +13,7 @@ ThemeData darkTheme = ThemeData(
     backgroundColor: Color(0xFF181818),
     titleTextStyle: TextStyle(
       color: Color(0xFFFFFCFC),
-      fontSize: 20.sp,
+      fontSize: AppSizes.sp20,
     ),
     centerTitle: true,
     iconTheme: IconThemeData(
@@ -52,7 +51,7 @@ ThemeData darkTheme = ThemeData(
       backgroundColor: Color(0XFF15B86C),
       foregroundColor: Color(0xFFFFFCFC),
       textStyle: TextStyle(
-        fontSize: 14.sp,
+        fontSize: AppSizes.sp14,
         fontWeight: FontWeight.w500,
       ),
       minimumSize: Size.fromHeight(AppSizes.h40),
@@ -66,40 +65,40 @@ ThemeData darkTheme = ThemeData(
     backgroundColor: Color(0xFF15B86C),
     foregroundColor: Color(0xFFFFFCFC),
     extendedTextStyle: TextStyle(
-      fontSize: 14.sp,
+      fontSize: AppSizes.sp14,
       fontWeight: FontWeight.w500,
     ),
   ),
   textTheme: TextTheme(
     displaySmall: TextStyle(
-      fontSize: 24.sp,
+      fontSize: AppSizes.sp24,
       color: Color(0xFFFFFCFC),
       fontWeight: FontWeight.w400,
     ),
     displayMedium: TextStyle(
-      fontSize: 28.sp,
+      fontSize: AppSizes.sp28,
       color: Color(0xFFFFFFFF),
       fontWeight: FontWeight.w400,
     ),
     displayLarge: TextStyle(
-      fontSize: 32.sp,
+      fontSize: AppSizes.sp32,
       color: Color(0xFFFFFCFC),
       fontWeight: FontWeight.w400,
     ),
     titleSmall: TextStyle(
       color: Color(0xFFC6C6C6),
-      fontSize: 14.sp,
+      fontSize: AppSizes.sp14,
       fontWeight: FontWeight.w400,
     ),
     titleMedium: TextStyle(
       color: Color(0xFFFFFCFC),
-      fontSize: 16.sp,
+      fontSize: AppSizes.sp16,
       fontWeight: FontWeight.w400,
     ),
     // For Done Task
     titleLarge: TextStyle(
       color: Color(0xFFA0A0A0),
-      fontSize: 16.sp,
+      fontSize: AppSizes.sp16,
       decoration: TextDecoration.lineThrough,
       decorationColor: Color(0xFFA0A0A0),
       overflow: TextOverflow.ellipsis,
@@ -108,10 +107,10 @@ ThemeData darkTheme = ThemeData(
     labelSmall: TextStyle(
       fontWeight: FontWeight.w400,
       color: Color(0xFFFFFCFC),
-      fontSize: 20.sp,
+      fontSize: AppSizes.sp20,
     ),
-    labelMedium: TextStyle(color: Colors.white, fontSize: 16.sp),
-    labelLarge: TextStyle(color: Colors.white, fontSize: 24.sp),
+    labelMedium: TextStyle(color: Colors.white, fontSize: AppSizes.sp16),
+    labelLarge: TextStyle(color: Colors.white, fontSize: AppSizes.sp24),
   ),
   inputDecorationTheme: InputDecorationTheme(
     hintStyle: TextStyle(
@@ -120,11 +119,11 @@ ThemeData darkTheme = ThemeData(
     filled: true,
     fillColor: Color(0xFF282828),
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppSizes.r16),
       borderSide: BorderSide.none,
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppSizes.r16),
       borderSide: BorderSide(
         color: Colors.red,
         width: 0.5,
@@ -137,7 +136,7 @@ ThemeData darkTheme = ThemeData(
       width: 2,
     ),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(AppSizes.r4),
     ),
   ),
   iconTheme: IconThemeData(
@@ -146,7 +145,7 @@ ThemeData darkTheme = ThemeData(
   listTileTheme: ListTileThemeData(
     titleTextStyle: TextStyle(
       color: Color(0xFFFFFCFC),
-      fontSize: 16.sp,
+      fontSize: AppSizes.sp16,
       fontWeight: FontWeight.w400,
     ),
   ),
@@ -173,7 +172,7 @@ ThemeData darkTheme = ThemeData(
     shadowColor: Color(0xFF15B86C),
     labelTextStyle: WidgetStateProperty.all(
       TextStyle(
-        fontSize: 20.sp,
+        fontSize: AppSizes.sp20,
         fontWeight: FontWeight.w400,
       ),
     ),
