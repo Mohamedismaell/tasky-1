@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
 import 'package:tasky/features/add_task/add_task_screen.dart';
 import 'package:tasky/features/home/components/achieved_tasks_widget.dart';
@@ -29,8 +30,10 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         Selector<HomeController, String?>(
-                          selector: (context, HomeController controller) => controller.userImagePath,
-                          builder: (BuildContext context, String? userImagePath, Widget? child) {
+                          selector: (context, HomeController controller) =>
+                              controller.userImagePath,
+                          builder: (BuildContext context, String? userImagePath,
+                              Widget? child) {
                             return CircleAvatar(
                               backgroundImage: userImagePath == null
                                   ? AssetImage('assets/images/person.png')
@@ -38,16 +41,19 @@ class HomeScreen extends StatelessWidget {
                             );
                           },
                         ),
-                        SizedBox(width: 8),
+                        SizedBox(width: AppSizes.w8),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Selector<HomeController, String?>(
-                              selector: (context, HomeController controller) => controller.username,
-                              builder: (BuildContext context, String? username, Widget? child) {
+                              selector: (context, HomeController controller) =>
+                                  controller.username,
+                              builder: (BuildContext context, String? username,
+                                  Widget? child) {
                                 return Text(
                                   "Good Evening, $username",
-                                  style: Theme.of(context).textTheme.titleMedium,
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 );
                               },
                             ),
@@ -59,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: AppSizes.h16),
                     Text(
                       'Yuhuu ,Your work Is',
                       style: Theme.of(context).textTheme.displayLarge,
@@ -70,7 +76,8 @@ class HomeScreen extends StatelessWidget {
                           'almost done ! ',
                           style: Theme.of(context).textTheme.displayLarge,
                         ),
-                        CustomSvgPicture.withoutColor(path: 'assets/images/waving_hand.svg'),
+                        CustomSvgPicture.withoutColor(
+                            path: 'assets/images/waving_hand.svg'),
                       ],
                     ),
                     SizedBox(height: 16),
@@ -78,7 +85,8 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(height: 8),
                     HighPriorityTasksWidget(),
                     Padding(
-                      padding: const EdgeInsets.only(top: 24, bottom: 16),
+                      padding: EdgeInsets.only(
+                          top: AppSizes.ph24, bottom: AppSizes.ph16),
                       child: Text(
                         'My Tasks',
                         style: Theme.of(context).textTheme.labelSmall,
@@ -114,7 +122,8 @@ class HomeScreen extends StatelessWidget {
                   'Add New Task',
                 ),
                 icon: Icon(Icons.add),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
               );
             },
           ),

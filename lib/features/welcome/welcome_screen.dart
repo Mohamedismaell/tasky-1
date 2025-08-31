@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/constants/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
@@ -22,23 +22,23 @@ class WelcomeScreen extends StatelessWidget {
               key: _key,
               child: Column(
                 children: [
-                  SizedBox(height: 16.h),
+                  SizedBox(height: AppSizes.h16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomSvgPicture.withoutColor(
                         path: 'assets/images/logo.svg',
-                        height: 42.h,
-                        width: 42.w,
+                        height: AppSizes.h42,
+                        width: AppSizes.w42,
                       ),
-                      SizedBox(width: 16.w),
+                      SizedBox(width: AppSizes.w16),
                       Text(
                         "Tasky",
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ],
                   ),
-                  SizedBox(height: 118),
+                  SizedBox(height: AppSizes.ph100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -50,26 +50,26 @@ class WelcomeScreen extends StatelessWidget {
                           path: "assets/images/waving_hand.svg"),
                     ],
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: AppSizes.h8),
                   Text(
                     "Your productivity journey starts here.",
                     style: Theme.of(context)
                         .textTheme
                         .displaySmall!
-                        .copyWith(fontSize: 16.sp),
+                        .copyWith(fontSize: AppSizes.sp16),
                   ),
-                  SizedBox(height: 24),
+                  SizedBox(height: AppSizes.ph24),
                   CustomSvgPicture.withoutColor(
                     path: 'assets/images/welcome.svg',
-                    width: 215,
-                    height: 200,
+                    width: AppSizes.w200,
+                    height: AppSizes.h200,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.w16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 24.h),
+                        SizedBox(height: AppSizes.h24),
                         CustomTextFormField(
                           controller: controller,
                           hintText: 'e.g. Sarah Khalid',
@@ -82,7 +82,7 @@ class WelcomeScreen extends StatelessWidget {
                             return null;
                           },
                         ),
-                        SizedBox(height: 24),
+                        SizedBox(height: AppSizes.ph24),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             fixedSize:
