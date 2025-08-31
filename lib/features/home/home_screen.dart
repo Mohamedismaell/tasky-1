@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       create: (context) => HomeController()..init(),
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(AppSizes.pw16),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                             path: 'assets/images/waving_hand.svg'),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: AppSizes.ph16),
                     AchievedTasksWidget(),
                     SizedBox(height: 8),
                     HighPriorityTasksWidget(),
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         floatingActionButton: SizedBox(
-          height: 44,
+          height: AppSizes.h44,
           child: Builder(
             builder: (BuildContext context) {
               return FloatingActionButton.extended(

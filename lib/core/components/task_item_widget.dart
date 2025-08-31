@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/constants/storage_key.dart';
 import 'package:tasky/core/enums/task_item_actions_enum.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
@@ -26,24 +27,25 @@ class TaskItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
+      height: AppSizes.h56,
       width: double.infinity,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: ThemeController.isDark() ? Colors.transparent : Color(0xFFD1DAD6),
+          color:
+              ThemeController.isDark() ? Colors.transparent : Color(0xFFD1DAD6),
         ),
       ),
       child: Row(
         children: [
-          SizedBox(width: 8),
+          SizedBox(width: AppSizes.pw8),
           CustomCheckBox(
             value: model.isDone,
             onChanged: (bool? value) => onChanged(value),
           ),
-          SizedBox(width: 16),
+          SizedBox(width: AppSizes.pw16),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -51,8 +53,9 @@ class TaskItemWidget extends StatelessWidget {
               children: [
                 Text(
                   model.taskName,
-                  style:
-                      model.isDone ? Theme.of(context).textTheme.titleLarge : Theme.of(context).textTheme.titleMedium,
+                  style: model.isDone
+                      ? Theme.of(context).textTheme.titleLarge
+                      : Theme.of(context).textTheme.titleMedium,
                   maxLines: 1,
                 ),
                 if (model.taskDescription.isNotEmpty)
@@ -60,7 +63,7 @@ class TaskItemWidget extends StatelessWidget {
                     model.taskDescription,
                     style: TextStyle(
                       color: Color(0xFFC6C6C6),
-                      fontSize: 14,
+                      fontSize: AppSizes.sp14,
                       overflow: TextOverflow.ellipsis,
                     ),
                     maxLines: 1,
@@ -132,8 +135,10 @@ class TaskItemWidget extends StatelessWidget {
   }
 
   Future<bool?> _showButtonSheet(BuildContext context, TaskModel model) {
-    TextEditingController taskNameController = TextEditingController(text: model.taskName);
-    TextEditingController taskDescriptionController = TextEditingController(text: model.taskDescription);
+    TextEditingController taskNameController =
+        TextEditingController(text: model.taskName);
+    TextEditingController taskDescriptionController =
+        TextEditingController(text: model.taskDescription);
     GlobalKey<FormState> key = GlobalKey<FormState>();
     bool isHighPriority = model.isHighPriority;
     return showModalBottomSheet<bool>(
@@ -141,7 +146,8 @@ class TaskItemWidget extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       builder: (context) {
         return StatefulBuilder(
-          builder: (BuildContext context, void Function(void Function()) setState) {
+          builder:
+              (BuildContext context, void Function(void Function()) setState) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Form(
@@ -149,7 +155,7 @@ class TaskItemWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 30),
+                    SizedBox(height: AppSizes.ph30),
                     CustomTextFormField(
                       controller: taskNameController,
                       title: "Task Name",
@@ -161,18 +167,20 @@ class TaskItemWidget extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: AppSizes.ph20),
                     CustomTextFormField(
                       title: "Task Description",
                       controller: taskDescriptionController,
                       maxLines: 5,
-                      hintText: 'Finish onboarding UI and hand off to devs by Thursday.',
+                      hintText:
+                          'Finish onboarding UI and hand off to devs by Thursday.',
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: AppSizes.ph20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('High Priority', style: Theme.of(context).textTheme.titleMedium),
+                        Text('High Priority',
+                            style: Theme.of(context).textTheme.titleMedium),
                         Switch(
                           value: isHighPriority,
                           onChanged: (bool value) {
@@ -190,7 +198,8 @@ class TaskItemWidget extends StatelessWidget {
                       ),
                       onPressed: () async {
                         if (key.currentState?.validate() ?? false) {
-                          final taskJson = PreferencesManager().getString(StorageKey.tasks);
+                          final taskJson =
+                              PreferencesManager().getString(StorageKey.tasks);
 
                           List<dynamic> listTasks = [];
 
@@ -214,7 +223,8 @@ class TaskItemWidget extends StatelessWidget {
                           listTasks[index] = newModel;
 
                           final taskEncode = jsonEncode(listTasks);
-                          await PreferencesManager().setString(StorageKey.tasks, taskEncode);
+                          await PreferencesManager()
+                              .setString(StorageKey.tasks, taskEncode);
 
                           Navigator.of(context).pop(true);
                         }

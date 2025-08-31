@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/features/tasks/controllers/tasks_controller.dart';
 
 class AchievedTasksWidget extends StatelessWidget {
@@ -9,18 +10,18 @@ class AchievedTasksWidget extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Consumer<TasksController>(
-      builder: (BuildContext context, TasksController controller, Widget? child) {
+      builder:
+          (BuildContext context, TasksController controller, Widget? child) {
         return Container(
           width: double.infinity,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(AppSizes.r20),
           ),
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.all(AppSizes.w16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -31,7 +32,7 @@ class AchievedTasksWidget extends StatelessWidget {
                     'Achieved Tasks',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: AppSizes.ph4),
                   Text(
                     '${controller.totalDoneTasks} Out of ${controller.totalTask} Done',
                     style: Theme.of(context).textTheme.titleSmall,
@@ -44,12 +45,13 @@ class AchievedTasksWidget extends StatelessWidget {
                   Transform.rotate(
                     angle: -pi / 2,
                     child: SizedBox(
-                      height: 48,
-                      width: 48,
+                      height: AppSizes.h48,
+                      width: AppSizes.w48,
                       child: CircularProgressIndicator(
                         value: controller.percent,
                         backgroundColor: Color(0xFF6D6D6D),
-                        valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF15B86C)),
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(Color(0xFF15B86C)),
                         strokeWidth: 4,
                       ),
                     ),
