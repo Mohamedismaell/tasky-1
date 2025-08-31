@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
@@ -72,33 +73,33 @@ ThemeData lightTheme = ThemeData(
   ),
   textTheme: TextTheme(
     displaySmall: TextStyle(
-      fontSize: 24,
+      fontSize: 24.sp,
       color: Color(0xFF161F1B),
       fontWeight: FontWeight.w400,
     ),
     displayMedium: TextStyle(
-      fontSize: 28,
+      fontSize: 28.sp,
       color: Color(0xFF161F1B),
       fontWeight: FontWeight.w400,
     ),
     displayLarge: TextStyle(
-      fontSize: 32,
+      fontSize: 32.sp,
       color: Color(0xFF161F1B),
       fontWeight: FontWeight.w400,
     ),
     titleSmall: TextStyle(
       color: Color(0xFF3A4640),
-      fontSize: 14,
+      fontSize: 14.sp,
       fontWeight: FontWeight.w400,
     ),
     titleMedium: TextStyle(
       color: Color(0xFF161F1B),
-      fontSize: 16,
+      fontSize: 16.sp,
       fontWeight: FontWeight.w400,
     ),
     titleLarge: TextStyle(
       color: Color(0xFF6A6A6A),
-      fontSize: 16,
+      fontSize: 16.sp,
       decoration: TextDecoration.lineThrough,
       decorationColor: Color(0xFF49454F),
       overflow: TextOverflow.ellipsis,
@@ -107,10 +108,10 @@ ThemeData lightTheme = ThemeData(
     labelSmall: TextStyle(
       fontWeight: FontWeight.w400,
       color: Color(0xFF161F1B),
-      fontSize: 20,
+      fontSize: 20.sp,
     ),
-    labelMedium: TextStyle(color: Colors.black, fontSize: 16),
-    labelLarge: TextStyle(color: Colors.black, fontSize: 24),
+    labelMedium: TextStyle(color: Colors.black, fontSize: 16.sp),
+    labelLarge: TextStyle(color: Colors.black, fontSize: 24.sp),
   ),
   inputDecorationTheme: InputDecorationTheme(
     hintStyle: TextStyle(
