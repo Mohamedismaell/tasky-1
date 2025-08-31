@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
@@ -47,20 +48,18 @@ ThemeData lightTheme = ThemeData(
     }),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(Color(0XFF15B86C)),
-      foregroundColor: WidgetStateProperty.all(Color(0xFFFFFCFC)),
-      textStyle: WidgetStateProperty.all(
-        TextStyle(
+    style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0XFF15B86C),
+        foregroundColor: Color(0xFFFFFCFC),
+        textStyle: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
-      ),
-    ),
+        minimumSize: Size.fromHeight(AppSizes.h40)),
   ),
   textButtonTheme: TextButtonThemeData(
-    style: ButtonStyle(
-      foregroundColor: WidgetStateProperty.all(Colors.black),
+    style: TextButton.styleFrom(
+      foregroundColor: Colors.black,
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(

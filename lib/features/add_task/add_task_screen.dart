@@ -39,7 +39,8 @@ class AddTaskScreen extends StatelessWidget {
                       title: "Task Description",
                       controller: controller.taskDescriptionController,
                       maxLines: 5,
-                      hintText: 'Finish onboarding UI and hand off to devs by Thursday.',
+                      hintText:
+                          'Finish onboarding UI and hand off to devs by Thursday.',
                     ),
                     SizedBox(height: 20),
                     Row(
@@ -50,7 +51,8 @@ class AddTaskScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         Consumer<AddTaskController>(
-                          builder: (BuildContext context, value, Widget? child) {
+                          builder:
+                              (BuildContext context, value, Widget? child) {
                             return Switch(
                               value: value.isHighPriority,
                               onChanged: (bool value) {
@@ -63,9 +65,6 @@ class AddTaskScreen extends StatelessWidget {
                     ),
                     Spacer(),
                     ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: Size(MediaQuery.of(context).size.width, 40),
-                      ),
                       onPressed: () async {
                         context.read<AddTaskController>().addTask(context);
                       },

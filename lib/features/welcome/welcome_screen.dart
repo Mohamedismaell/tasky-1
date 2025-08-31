@@ -84,10 +84,6 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         SizedBox(height: AppSizes.ph24),
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            fixedSize:
-                                Size(MediaQuery.of(context).size.width, 40),
-                          ),
                           onPressed: () async {
                             if (_key.currentState?.validate() ?? false) {
                               await PreferencesManager().setString(

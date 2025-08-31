@@ -9,6 +9,7 @@ class AppSizes {
   static final double h8 = 8.h;
   static final double h16 = 16.h;
   static final double h24 = 24.h;
+  static final double h40 = 40.h;
   static final double h42 = 42.h;
   static final double h200 = 200.h;
 

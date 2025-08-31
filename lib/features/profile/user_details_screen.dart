@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/constants/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/widgets/custom_text_form_field.dart';
@@ -28,7 +29,8 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
   void initState() {
     super.initState();
     userNameController = TextEditingController(text: widget.userName);
-    motivationQuoteController = TextEditingController(text: widget.motivationQuote);
+    motivationQuoteController =
+        TextEditingController(text: widget.motivationQuote);
   }
 
   @override
@@ -71,17 +73,19 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
               ElevatedButton(
                 onPressed: () async {
                   if (_key.currentState!.validate()) {
-                    await PreferencesManager().setString(StorageKey.username, userNameController.value.text);
-                    await PreferencesManager().setString(StorageKey.motivationQuote, motivationQuoteController.value.text);
+                    await PreferencesManager().setString(
+                        StorageKey.username, userNameController.value.text);
+                    await PreferencesManager().setString(
+                        StorageKey.motivationQuote,
+                        motivationQuoteController.value.text);
 
                     Navigator.pop(context, true);
                   }
                 },
-                style: ElevatedButton.styleFrom(
-                  fixedSize: Size(MediaQuery.of(context).size.width, 40),
-                ),
                 child: Text('Save Changes'),
-              )
+              ),
+
+              SizedBox(height: AppSizes.ph24,),
             ],
           ),
         ),
