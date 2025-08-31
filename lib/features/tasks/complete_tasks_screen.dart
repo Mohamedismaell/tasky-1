@@ -9,6 +9,7 @@ class CompleteTasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = context.read<TasksController>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
