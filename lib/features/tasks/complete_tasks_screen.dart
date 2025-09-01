@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tasky/core/components/task_list_widget.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/features/tasks/controllers/tasks_controller.dart';
 
 class CompleteTasksScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class CompleteTasksScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: EdgeInsets.all(AppSizes.pw18),
           child: Text(
             'Completed Tasks',
             style: Theme.of(context).textTheme.labelSmall,
@@ -22,18 +23,20 @@ class CompleteTasksScreen extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(AppSizes.pw16),
             child: controller.isLoading
                 ? Center(
                     child: CircularProgressIndicator(
                     value: 20,
                   ))
                 : Consumer<TasksController>(
-                    builder: (BuildContext context, valueController, Widget? child) {
+                    builder:
+                        (BuildContext context, valueController, Widget? child) {
                       return TaskListWidget(
                         tasks: valueController.completeTasks,
                         onTap: (value, index) async {
-                          controller.doneTask(value, valueController.completeTasks[index!].id);
+                          controller.doneTask(
+                              value, valueController.completeTasks[index!].id);
                         },
                         emptyMessage: 'No Task Found',
                         onDelete: (int? id) {

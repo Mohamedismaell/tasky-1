@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/widgets/custom_text_form_field.dart';
 import 'package:tasky/features/add_task/add_task_controller.dart';
 
@@ -16,7 +17,8 @@ class AddTaskScreen extends StatelessWidget {
           appBar: AppBar(title: Text('New Task')),
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.pw16, vertical: AppSizes.ph8),
               child: Form(
                 key: controller.key,
                 child: Column(
@@ -34,7 +36,7 @@ class AddTaskScreen extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: AppSizes.ph20),
                     CustomTextFormField(
                       title: "Task Description",
                       controller: controller.taskDescriptionController,
@@ -42,7 +44,7 @@ class AddTaskScreen extends StatelessWidget {
                       hintText:
                           'Finish onboarding UI and hand off to devs by Thursday.',
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: AppSizes.ph20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

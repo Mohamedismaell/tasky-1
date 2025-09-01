@@ -40,12 +40,14 @@ class AppSizes {
   static final double ph20 = 20.h;
   static final double ph24 = 24.h;
   static final double ph30 = 30.h;
+  static final double ph60 = 60.h;
   static final double ph80 = 80.h;
   static final double ph100 = 100.h;
 
   /// Padding Width
   static final double pw8 = 8.w;
   static final double pw16 = 16.w;
+  static final double pw18 = 18.w;
   static final double pw24 = 24.w;
 
   /// Radius

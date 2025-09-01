@@ -32,7 +32,7 @@ class TaskItemWidget extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppSizes.r20),
         border: Border.all(
           color:
               ThemeController.isDark() ? Colors.transparent : Color(0xFFD1DAD6),
@@ -149,7 +149,8 @@ class TaskItemWidget extends StatelessWidget {
           builder:
               (BuildContext context, void Function(void Function()) setState) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.pw16, vertical: AppSizes.ph8),
               child: Form(
                 key: key,
                 child: Column(

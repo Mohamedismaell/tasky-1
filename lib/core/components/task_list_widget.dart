@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/components/task_item_widget.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/models/task_model.dart';
 
 class TaskListWidget extends StatelessWidget {
@@ -31,7 +32,7 @@ class TaskListWidget extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: tasks.length,
-            padding: EdgeInsets.only(bottom: 60),
+            padding: EdgeInsets.only(bottom: AppSizes.ph60),
             itemBuilder: (BuildContext context, int index) {
               return TaskItemWidget(
                 model: tasks[index],
@@ -45,7 +46,7 @@ class TaskListWidget extends StatelessWidget {
               );
             },
             separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(height: 8);
+              return SizedBox(height: AppSizes.ph8);
             },
           );
   }
