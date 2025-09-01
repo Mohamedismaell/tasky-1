@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/constants/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
@@ -32,7 +33,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void _loadData() async {
     setState(() {
       username = PreferencesManager().getString(StorageKey.username) ?? '';
-      motivationQuote = PreferencesManager().getString(StorageKey.motivationQuote) ?? "One task at a time. One step closer.";
+      motivationQuote =
+          PreferencesManager().getString(StorageKey.motivationQuote) ??
+              "One task at a time. One step closer.";
       userImagePath = PreferencesManager().getString(StorageKey.userImage);
       isLoading = false;
     });
@@ -43,12 +46,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return isLoading
         ? Center(child: CircularProgressIndicator())
         : Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(AppSizes.w16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: EdgeInsets.only(top: AppSizes.ph8),
                   child: Text(
                     'My Profile',
                     style: Theme.of(context).textTheme.labelSmall,
@@ -65,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             backgroundImage: userImagePath == null
                                 ? AssetImage('assets/images/person.png')
                                 : FileImage(File(userImagePath!)),
-                            radius: 60,
+                            radius: AppSizes.r60,
                             backgroundColor: Colors.transparent,
                           ),
                           GestureDetector(
@@ -78,21 +81,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               });
                             },
                             child: Container(
-                              width: 45,
-                              height: 45,
+                              width: AppSizes.w45,
+                              height: AppSizes.h45,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                color: Theme.of(context).colorScheme.primaryContainer,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .primaryContainer,
                               ),
                               child: Icon(
                                 Icons.camera_alt,
-                                size: 26,
+                                size: AppSizes.r26,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 6),
+                      SizedBox(height: AppSizes.h6),
                       Text(
                         username,
                         style: Theme.of(context).textTheme.labelSmall,
@@ -104,15 +109,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: AppSizes.ph24),
                 Text(
                   'Profile Info',
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: AppSizes.ph24),
                 ListTile(
                   onTap: () async {
-                    final result = await Navigator.push(context, MaterialPageRoute(
+                    final result =
+                        await Navigator.push(context, MaterialPageRoute(
                       builder: (BuildContext context) {
                         return UserDetailsScreen(
                           userName: username,
@@ -126,14 +132,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   },
                   contentPadding: EdgeInsets.zero,
                   title: Text('User Details'),
-                  leading: CustomSvgPicture(path: 'assets/images/profile_icon.svg'),
-                  trailing: CustomSvgPicture(path: 'assets/images/arrow_right.svg'),
+                  leading:
+                      CustomSvgPicture(path: 'assets/images/profile_icon.svg'),
+                  trailing:
+                      CustomSvgPicture(path: 'assets/images/arrow_right.svg'),
                 ),
                 Divider(thickness: 1),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text('Dark Mode'),
-                  leading: CustomSvgPicture(path: 'assets/images/dark_icon.svg'),
+                  leading:
+                      CustomSvgPicture(path: 'assets/images/dark_icon.svg'),
                   trailing: ValueListenableBuilder(
                     valueListenable: ThemeController.themeNotifier,
                     builder: (BuildContext context, value, Widget? child) {
@@ -164,8 +173,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   },
                   contentPadding: EdgeInsets.zero,
                   title: Text('Log Out'),
-                  leading: CustomSvgPicture(path: 'assets/images/logout_icon.svg'),
-                  trailing: CustomSvgPicture(path: 'assets/images/arrow_right.svg'),
+                  leading:
+                      CustomSvgPicture(path: 'assets/images/logout_icon.svg'),
+                  trailing:
+                      CustomSvgPicture(path: 'assets/images/arrow_right.svg'),
                 ),
               ],
             ),
@@ -192,16 +203,17 @@ void showImageSourceDialog(BuildContext context, Function(XFile) selectedFile) {
           SimpleDialogOption(
             onPressed: () async {
               Navigator.pop(context);
-              XFile? image = await ImagePicker().pickImage(source: ImageSource.camera);
+              XFile? image =
+                  await ImagePicker().pickImage(source: ImageSource.camera);
               if (image != null) {
                 selectedFile(image);
               }
             },
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(AppSizes.pw16),
             child: Row(
               children: [
                 Icon(Icons.camera_alt),
-                SizedBox(width: 8),
+                SizedBox(width: AppSizes.w8),
                 Text('Camera'),
               ],
             ),
@@ -209,16 +221,17 @@ void showImageSourceDialog(BuildContext context, Function(XFile) selectedFile) {
           SimpleDialogOption(
             onPressed: () async {
               Navigator.pop(context);
-              XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
+              XFile? image =
+                  await ImagePicker().pickImage(source: ImageSource.gallery);
               if (image != null) {
                 selectedFile(image);
               }
             },
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(AppSizes.pw16),
             child: Row(
               children: [
                 Icon(Icons.photo_library),
-                SizedBox(width: 8),
+                SizedBox(width: AppSizes.w8),
                 Text('Gallery'),
               ],
             ),

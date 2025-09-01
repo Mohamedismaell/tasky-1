@@ -12,11 +12,13 @@ class AppSizes {
 
   /// Heights
   static final double h8 = 8.h;
+  static final double h6 = 6.h;
   static final double h16 = 16.h;
   static final double h24 = 24.h;
   static final double h40 = 40.h;
   static final double h42 = 42.h;
   static final double h44 = 44.h;
+  static final double h45 = 45.h;
   static final double h48 = 48.h;
   static final double h56 = 56.h;
   static final double h200 = 200.h;
@@ -27,6 +29,7 @@ class AppSizes {
   static final double w16 = 16.w;
   static final double w24 = 24.w;
   static final double w42 = 42.w;
+  static final double w45 = 45.w;
   static final double w48 = 48.w;
   static final double w200 = 200.w;
 
@@ -49,4 +52,6 @@ class AppSizes {
   static final double r4 = 4.r;
   static final double r16 = 16.r;
   static final double r20 = 20.r;
+  static final double r26 = 26.r;
+  static final double r60 = 60.r;
 }
