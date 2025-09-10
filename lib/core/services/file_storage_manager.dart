@@ -27,10 +27,14 @@ class FileStorageManager {
   }
 
   Future<List<dynamic>> loadTasks() async {
-    if(!await _tasksFile.exists()) return [];
+    if (!await _tasksFile.exists()) return [];
 
     final tasksJson = await _tasksFile.readAsString();
 
     return jsonDecode(tasksJson) as List<dynamic>;
+  }
+
+  clear() async {
+    await _tasksFile.delete();
   }
 }

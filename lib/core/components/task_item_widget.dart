@@ -218,9 +218,7 @@ class TaskItemWidget extends StatelessWidget {
                           final int index = listTasks.indexOf(item);
                           listTasks[index] = newModel;
 
-                          final taskEncode = jsonEncode(listTasks);
-                          await PreferencesManager()
-                              .setString(StorageKey.tasks, taskEncode);
+                          await FileStorageManager().saveTasks(listTasks);
 
                           Navigator.of(context).pop(true);
                         }
