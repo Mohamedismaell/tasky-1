@@ -76,4 +76,8 @@ class TasksController extends ChangeNotifier {
     totalDoneTasks = tasks.where((e) => e.isDone).length;
     percent = totalTask == 0 ? 0 : totalDoneTasks / totalTask;
   }
+
+  clearTasks(){
+    _loadTasks();
+  }
 }

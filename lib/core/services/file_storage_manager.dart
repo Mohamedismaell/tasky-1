@@ -35,6 +35,7 @@ class FileStorageManager {
   }
 
   clear() async {
+    if (!await _tasksFile.exists()) return;
     await _tasksFile.delete();
   }
 }
