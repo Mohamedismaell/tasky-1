@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/constants/storage_key.dart';
 import 'package:tasky/core/enums/task_item_actions_enum.dart';
+import 'package:tasky/core/services/file_storage_manager.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_check_box.dart';
@@ -199,14 +200,8 @@ class TaskItemWidget extends StatelessWidget {
                       ),
                       onPressed: () async {
                         if (key.currentState?.validate() ?? false) {
-                          final taskJson =
-                              PreferencesManager().getString(StorageKey.tasks);
-
-                          List<dynamic> listTasks = [];
-
-                          if (taskJson != null) {
-                            listTasks = jsonDecode(taskJson);
-                          }
+                          List<dynamic> listTasks =
+                              await FileStorageManager().loadTasks();
 
                           TaskModel newModel = TaskModel(
                             id: model.id,

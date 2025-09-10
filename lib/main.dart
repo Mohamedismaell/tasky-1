@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:tasky/core/constants/storage_key.dart';
+import 'package:tasky/core/services/file_storage_manager.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/theme/dark_theme.dart';
 import 'package:tasky/core/theme/light_theme.dart';
@@ -17,6 +18,8 @@ void main() async {
 
   await PreferencesManager().init();
   ThemeController().init();
+
+  await FileStorageManager().init();
 
   String? username = PreferencesManager().getString(StorageKey.username);
 
