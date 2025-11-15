@@ -1,18 +1,14 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:tasky/core/constants/app_sizes.dart';
-import 'package:tasky/core/constants/storage_key.dart';
 import 'package:tasky/core/enums/task_item_actions_enum.dart';
-import 'package:tasky/core/services/file_storage_manager.dart';
-import 'package:tasky/core/services/preferences_manager.dart';
+import 'package:tasky/core/services/hive_storage_manager.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_check_box.dart';
 import 'package:tasky/core/widgets/custom_text_form_field.dart';
 import 'package:tasky/models/task_model.dart';
 
 class TaskItemWidget extends StatelessWidget {
-  TaskItemWidget({
+  const TaskItemWidget({
     super.key,
     required this.model,
     required this.onChanged,
@@ -200,8 +196,8 @@ class TaskItemWidget extends StatelessWidget {
                       ),
                       onPressed: () async {
                         if (key.currentState?.validate() ?? false) {
-                          List<dynamic> listTasks =
-                              await FileStorageManager().loadTasks();
+                          List<TaskModel> listTasks =
+                              HiveStorageManager().loadTasks();
 
                           TaskModel newModel = TaskModel(
                             id: model.id,
@@ -212,13 +208,13 @@ class TaskItemWidget extends StatelessWidget {
                           );
 
                           final item = listTasks.firstWhere(
-                            (e) => e['id'] == model.id,
+                            (e) => e.id == model.id,
                           );
 
                           final int index = listTasks.indexOf(item);
                           listTasks[index] = newModel;
 
-                          await FileStorageManager().saveTasks(listTasks);
+                          await HiveStorageManager().saveTasks(listTasks);
 
                           Navigator.of(context).pop(true);
                         }

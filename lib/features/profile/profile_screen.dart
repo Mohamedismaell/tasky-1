@@ -6,7 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:tasky/core/constants/app_sizes.dart';
 import 'package:tasky/core/constants/storage_key.dart';
-import 'package:tasky/core/services/file_storage_manager.dart';
+import 'package:tasky/core/services/hive_storage_manager.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
@@ -164,7 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     PreferencesManager().remove(StorageKey.username);
                     PreferencesManager().remove(StorageKey.motivationQuote);
 
-                    await FileStorageManager().clear();
+                    await HiveStorageManager().clear();
 
                     context.read<TasksController>().clearTasks();
 
