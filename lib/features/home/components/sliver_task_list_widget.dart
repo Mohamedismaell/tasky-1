@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tasky/core/components/task_item_widget.dart';
-import 'package:tasky/features/home/controllers/home_controller.dart';
+import 'package:tasky/features/home/home_controller.dart';
 
 class SliverTaskListWidget extends StatelessWidget {
   const SliverTaskListWidget({
     super.key,
   });
-//CAn have message
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeController>(

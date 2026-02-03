@@ -7,7 +7,7 @@ import 'package:tasky/features/add_task/add_task_screen.dart';
 import 'package:tasky/features/home/components/achieved_tasks_widget.dart';
 import 'package:tasky/features/home/components/high_priority_tasks_widget.dart';
 import 'package:tasky/features/home/components/sliver_task_list_widget.dart';
-import 'package:tasky/features/home/controllers/home_controller.dart';
+import 'package:tasky/features/home/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
