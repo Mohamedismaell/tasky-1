@@ -15,7 +15,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screen = [
     HomeScreen(),
-    TasksScreen(),
+    ToDoTasksScreen(),
     CompleteTasksScreen(),
     ProfileScreen(),
   ];
