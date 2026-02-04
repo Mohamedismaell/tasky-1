@@ -26,12 +26,15 @@ class _HighPriorityScreenState extends State<HighPriorityScreen> {
             child: controller.isLoading
                 ? Center(child: CircularProgressIndicator())
                 : Consumer<TasksController>(
-                    builder: (context, value, _) => TaskListWidget(
-                        tasks: value.highPriorityTasks,
-                        onTap: value.doneHighPriorityTask,
+                    builder: (context, valueController, _) => TaskListWidget(
+                        tasks: valueController.highPriorityTasks,
+                        onTap: (value, index) {
+                          valueController.doneTask(value,
+                              valueController.highPriorityTasks[index!].id);
+                        },
                         emptyMessage: 'No Task Found',
-                        onDelete: value.deleteTask,
-                        onEdit: value.loadTask),
+                        onDelete: valueController.deleteTask,
+                        onEdit: valueController.loadTask),
                   ),
           );
         }),

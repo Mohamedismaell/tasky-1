@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_check_box.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
-import 'package:tasky/features/home/home_controller.dart';
 import 'package:tasky/features/tasks/high_priority_screen.dart';
+import 'package:tasky/features/tasks/tasks_controller.dart';
 
 class HighPriorityTasksWidget extends StatelessWidget {
   const HighPriorityTasksWidget({
@@ -13,7 +13,7 @@ class HighPriorityTasksWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeController>(
+    return Consumer<TasksController>(
       builder: (context, homeController, child) => Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primaryContainer,
@@ -40,16 +40,16 @@ class HighPriorityTasksWidget extends StatelessWidget {
                   ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: homeController.tasks.reversed
+                    itemCount: homeController.allTasks.reversed
                                 .where((e) => e.isHighPriority)
                                 .length >
                             4
                         ? 4
-                        : homeController.tasks.reversed
+                        : homeController.allTasks.reversed
                             .where((e) => e.isHighPriority)
                             .length,
                     itemBuilder: (BuildContext context, int index) {
-                      final task = homeController.tasks.reversed
+                      final task = homeController.allTasks.reversed
                           .where((e) => e.isHighPriority)
                           .toList()[index];
                       return Row(
@@ -57,7 +57,7 @@ class HighPriorityTasksWidget extends StatelessWidget {
                           CustomCheckBox(
                             value: task.isDone,
                             onChanged: (bool? value) {
-                              final index = homeController.tasks
+                              final index = homeController.allTasks
                                   .indexWhere((e) => e.id == task.id);
                               homeController.doneTask(value, index);
                             },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tasky/core/components/task_item_widget.dart';
-import 'package:tasky/features/home/home_controller.dart';
+import 'package:tasky/features/tasks/tasks_controller.dart';
 
 class SliverTaskListWidget extends StatelessWidget {
   const SliverTaskListWidget({
@@ -9,8 +9,8 @@ class SliverTaskListWidget extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeController>(
-        builder: (context, controller, child) => controller.tasks.isEmpty
+    return Consumer<TasksController>(
+        builder: (context, controller, child) => controller.allTasks.isEmpty
             ? SliverToBoxAdapter(
                 child: Center(
                   child: Text(
@@ -23,12 +23,13 @@ class SliverTaskListWidget extends StatelessWidget {
             : SliverPadding(
                 padding: EdgeInsets.only(bottom: 80),
                 sliver: SliverList.separated(
-                  itemCount: controller.tasks.length,
+                  itemCount: controller.allTasks.length,
                   itemBuilder: (BuildContext context, int index) {
                     return TaskItemWidget(
-                        model: controller.tasks[index],
+                        model: controller.allTasks[index],
                         onChanged: (bool? value) {
-                          controller.doneTask(value, index);
+                          controller.doneTask(
+                              value, controller.allTasks[index].id);
                         },
                         onDelete: (int id) {
                           controller.deleteTask(id);
